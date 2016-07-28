@@ -40,6 +40,11 @@
 				overflow-y: auto;
 			}
 
+			li{
+				border-bottom: solid thin black;
+				margin-bottom: 10px;
+			}
+
 			textarea{
 				width: 100%;
 			}
@@ -48,7 +53,7 @@
 
 	<body>
 	    <div class="container">
-	    	<h1>Loki Js Demonstration</h1>
+	    	<h1>Loki Js Demonstration - To Do App</h1>
 			<div class="block">
 				<div class="column">
 					<input id="title" type="text" placeholder="enter title" />
@@ -61,9 +66,9 @@
 				</div>			
 			</div>
 			<div class="block output">
-				<ul id="list">
+				<ol id="list">
 
-				</ul>
+				</ol>
 			</div>
 	    </div>
 	</body>
@@ -90,6 +95,8 @@
 		            description: description
 		        }, function(item) {
 		        	populateData(item);
+			        $('#title').val('');
+			        $('#description').val('');
 		        });
 		    });
 
@@ -97,7 +104,7 @@
 		    	if (!item) {
 		    		return;
 		    	}
-		    	var template = '<li><div>' + item.title + '</div><p>'+ item.description +'</p></li>';
+		    	var template = '<li><div><b>' + item.title + '</b></div><p>'+ item.description +'</p></li>';
 		    	$('#list').html($('#list').html() + template);
 		    }
 

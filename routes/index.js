@@ -14,9 +14,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-	var data = req.body;
-	todo.insert(data);
-	res.json(data);
+	todo.insert(req.body);
+	res.json(req.body);
 });
 
 module.exports = router;
