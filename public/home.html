@@ -5,50 +5,7 @@
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 	    <title>Loki Js POC</title>
-		<style>
-			body{
-				font-family: sans-serif;
-			}
-			.container {
-			    height: 600px;
-			    width: 800px;
-			    position: absolute;
-			    background: #acccaa;
-			    left: 0;
-			    right: 0;
-			  	margin: 0 auto;
-			}
-			.block{
-				width: 49%;
-			  	float: left;
-				height: 80%;
-			}
-			h1{
-				text-align: center;
-				border-bottom: solid thin black;
-			}
-			.column{
-				margin: 0 5% 20px 5%;
-			}
-			input{
-				width: 100%;
-				height: 30px;
-				font-family: sans-serif;
-			}
-
-			.output{
-				overflow-y: auto;
-			}
-
-			li{
-				border-bottom: solid thin black;
-				margin-bottom: 10px;
-			}
-
-			textarea{
-				width: 100%;
-			}
-		</style>
+	<link rel="stylesheet" type="text/css" href="application.css">
 	</head>
 
 	<body>
@@ -74,50 +31,6 @@
 	</body>
 
 	<script type="text/javascript" src="jquery-3.1.0.slim.min.js"></script>
-	<script type="text/javascript">
-		(function($) {
-
-			$.get('/',function (todoItems) {
-				populateAllData(todoItems);
-			});
-
-
-		    $('#btnSave').click(function() {
-		        var title = $('#title').val();
-		        var description = $('#description').val();
-
-		        if (!title || !description) {
-		            return;
-		        }
-
-		        $.post('/', {
-		            title: title,
-		            description: description
-		        }, function(item) {
-		        	populateData(item);
-			        $('#title').val('');
-			        $('#description').val('');
-		        });
-		    });
-
-		    function populateData(item) {
-		    	if (!item) {
-		    		return;
-		    	}
-		    	var template = '<li><div><b>' + item.title + '</b></div><p>'+ item.description +'</p></li>';
-		    	$('#list').html($('#list').html() + template);
-		    }
-
-		    function populateAllData(todoItems) {
-		    	if (!todoItems || !todoItems.length) {
-		    		return;
-		    	}
-
-		    	todoItems.forEach(function (item) {
-		    		populateData(item);
-		    	});
-		    }
-		})(jQuery);
-	</script>
+	<script type="text/javascript" src="application.js"></script>
 
 </html>
